@@ -1,0 +1,60 @@
+  <html>
+
+  <head>
+      <title>list</title>
+  </head>
+
+  <body style="text-align: center;"><br><br><br><br>
+      <span>
+          <Input id="input" placeholder="Enter Name Here">&nbsp;&nbsp;
+          <button type="button" onclick="submit()">Submit</button>
+      </span>
+      <br>
+      <h3 id="name"></h3><br><br>
+      <button onclick="show()">show</button><br><br>
+      <h3 id="comma"></h3><br><br>
+      <h3 id="nocomma"></h3><br><br>
+      <div><input id="earch">&nbsp;&nbsp;<button onclick="find()">Search</button><br><br>
+          <h2 id="showresult"></h2>
+      </div>
+  </body>
+  <script>
+      var nameofguest = [];
+      var input = document.getElementById("input");
+
+
+      function submit() {
+
+          nameofguest.push(input.value);
+          document.getElementById("name").innerHTML = nameofguest;
+      }
+
+      function show() {
+          sortedname = [];
+
+
+          for (i = 0; i < nameofguest.length; i++) {
+              sortedname = sortedname + nameofguest[i] + "<br>";
+              document.getElementById("comma").innerHTML = sortedname;
+          }
+          nameofguest.sort();
+          sortedname = [];
+          for (i = 0; i < nameofguest.length; i++) {
+              sortedname = sortedname + nameofguest[i] + "<br>";
+              document.getElementById("nocomma").innerHTML = sortedname;
+          }
+
+    function find(){
+              found = 0;
+              for (j = 0; j < nameofguest.length; j++) {
+                  if (document.getElementById("earch").value == nameofguest[j]) {
+                      found = found + 1;
+                  }
+              }
+              document.getElementById("showresult").innerHTML = "name found " + found + " time/s";
+          }
+
+      }
+  </script>
+
+</html>
